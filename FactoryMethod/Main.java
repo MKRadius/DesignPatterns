@@ -12,6 +12,7 @@ public class Main {
         System.out.println("Please select a game to play:");
         System.out.println("1. City Game");
         System.out.println("2. Wilderness Game");
+        System.out.print("Choice: ");
 
         Game game = null;
         int choice = scanner.nextInt();
