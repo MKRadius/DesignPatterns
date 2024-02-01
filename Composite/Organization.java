@@ -1,22 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Department {
+public class Organization {
     private static int id = 0;
-    
-    private int departmentId;
-    private String name;
-    private List<Employee> employeeList;
-    private List<Department> departmentList;
 
-    public Department() {
-        this.departmentId = id++;
-        this.name = "department" + departmentId;
-        this.employeeList = new ArrayList<Employee>();
+    private String name;
+    private List<Department> departmentList;
+    private List<Employee> employeeList;
+
+    public Organization() {
+        this.name = "organization" + id++;
         this.departmentList = new ArrayList<Department>();
+        this.employeeList = new ArrayList<Employee>();
     }
 
-    public Department(String name) {
+    public Organization(String name) {
         this();
         this.name = name;
     }
