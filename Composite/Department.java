@@ -73,4 +73,44 @@ public class Department {
             return salary;
         }
     }
+
+    public String toXML(int indentationLevel) {
+        StringBuilder xml = new StringBuilder();
+        String indentation = "    ".repeat(indentationLevel);
+
+        xml.append(indentation).append("<department name=\"").append(name).append("\">\n");
+
+        if (departmentList.isEmpty() && employeeList.isEmpty()) {
+            xml.append(indentation).append("</department>\n");
+            return xml.toString();
+        }
+        else if (departmentList.isEmpty() && !employeeList.isEmpty()) {
+            for (Employee employee : employeeList) {
+                xml.append(indentation).append("    ")
+                   .append("<employee name=\"").append(employee.getName())
+                   .append("\" salary=\"").append(employee.getSalary()).append("\" />\n");
+            }
+            xml.append(indentation).append("</department>\n");
+            return xml.toString();
+        }
+        else if (!departmentList.isEmpty() && employeeList.isEmpty()) {
+            for (Department department : departmentList) {
+                xml.append(department.toXML(indentationLevel + 1));
+            }
+            xml.append(indentation).append("</department>\n");
+            return xml.toString();
+        }
+        else {
+            for (Employee employee : employeeList) {
+                xml.append(indentation).append("    ")
+                   .append("<employee name=\"").append(employee.getName())
+                   .append("\" salary=\"").append(employee.getSalary()).append("\" />\n");
+            }
+            for (Department department : departmentList) {
+                xml.append(department.toXML(indentationLevel + 1));
+            }
+            xml.append(indentation).append("</department>\n");
+            return xml.toString();
+        }
+    }
 }

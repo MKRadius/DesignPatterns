@@ -41,5 +41,8 @@ public class Main {
 
         // print the salary of organization1
         System.out.println("Salary of organization1: " + organization.getSalary());
+
+        //print XML representation of organization1
+        System.out.println(organization.toXML());
     }
 }

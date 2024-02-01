@@ -71,4 +71,40 @@ public class Organization {
             return salary;
         }
     }
+
+    public String toXML() {
+        StringBuilder xml = new StringBuilder();
+        xml.append("<organization name=\"").append(name).append("\">");
+
+        if (employeeList.isEmpty() && departmentList.isEmpty()) {
+            xml.append("</organization>\n");
+            return xml.toString();
+        }
+        else if (employeeList.isEmpty() && !departmentList.isEmpty()) {
+            for (Department department : departmentList) {
+                xml.append(department.toXML(1));
+            }
+            xml.append("</organization>\n");
+            return xml.toString();
+        }
+        else if (!employeeList.isEmpty() && departmentList.isEmpty()) {
+            for (Employee employee : employeeList) {
+                xml.append("\n    ").append("<employee name=\"").append(employee.getName())
+                   .append("\" salary=\"").append(employee.getSalary()).append("\" />\n");
+            }
+            xml.append("</organization>\n");
+            return xml.toString();
+        }
+        else {
+            for (Employee employee : employeeList) {
+                xml.append("\n    ").append("<employee name=\"").append(employee.getName())
+                   .append("\" salary=\"").append(employee.getSalary()).append("\" />\n");
+            }
+            for (Department department : departmentList) {
+                xml.append(department.toXML(1));
+            }
+            xml.append("</organization>\n");
+            return xml.toString();
+        }
+    }
 }
