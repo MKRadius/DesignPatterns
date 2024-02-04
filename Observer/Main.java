@@ -1,9 +1,5 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
         WeatherStation weatherStation = new WeatherStation();
 
         // Create observers
@@ -30,7 +26,7 @@ public class Main {
         weatherStation.removeObserver(observer3);
         System.out.println("Observer 3 removed");
 
-        // End the weather station after 15 seconds
+
         try {
             Thread.sleep(15000);
         } catch (InterruptedException e) {
@@ -45,7 +41,5 @@ public class Main {
         System.out.println(observer3.getName() + " final temperature: " + observer3.getTemperature());
 
         System.out.println("End of program");
-
-        scanner.close();
     }
 }
