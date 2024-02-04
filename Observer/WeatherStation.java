@@ -28,7 +28,7 @@ public class WeatherStation extends Thread {
 
     public void run() {
         try {
-            while (true) {
+            while (!Thread.interrupted()) {
                 if (new Random().nextBoolean()) {
                     temperature++;
                     if (temperature > MAX_TEMPERATURE) {
@@ -42,11 +42,17 @@ public class WeatherStation extends Thread {
                 }
     
                 notifyObservers();
-                Thread.sleep(new Random().nextInt(5000 - 1000 + 1) + 1000);
+                
+                try {
+                    Thread.sleep(new Random().nextInt(5000 - 1000 + 1) + 1000);
+                }
+                catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
             }
         } 
-        catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+        catch (Exception e) {
+            e.printStackTrace();
         } 
     }
 }
