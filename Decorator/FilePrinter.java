@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class FilePrinter extends PrinterDecorator {
     public FilePrinter(Printer printer) {
         super(printer);
@@ -5,7 +9,11 @@ public class FilePrinter extends PrinterDecorator {
 
     @Override
     public void print(String message) {
-        super.print(message);
-        System.out.println("Printing to file: " + message);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("message.txt"))) {
+            writer.write(message);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
