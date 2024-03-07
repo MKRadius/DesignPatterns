@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        Game game = new GuessingGame();
-        game.play(4);
+        // Game game = new GuessingGame();
+        // game.play(30);
+
+        Game game = new TicTacToeGame();
+        game.play(2);
     }
 }

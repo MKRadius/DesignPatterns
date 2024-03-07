@@ -9,8 +9,8 @@ public class GuessingGame extends Game {
     @Override
     public void initializeGame(int numberOfPlayers) {
         System.out.println("Initializing game for " + numberOfPlayers + " players.");
-        System.out.println("You have to guess a number between 1 and 10.");
-        numberToGuess = (int) (Math.random() * 10 + 1);
+        System.out.println("You have to guess a number between 1 and " + (numberOfPlayers * numberOfPlayers) + ".");
+        numberToGuess = (int) (Math.random() * (numberOfPlayers * numberOfPlayers) + 1);
     }
 
     @Override
