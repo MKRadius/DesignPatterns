@@ -6,7 +6,6 @@ public class GeneralFeedbackHandler extends FeedbackHandler {
 
     @Override
     protected void handle(FeedbackMessage message) {
-        System.out.println("General feedback received from: " + message.getSenderEmail());
-        // Handle general feedback logic here
+        System.out.println("General feedback received from: " + message.getSenderEmail() + " - " + message.getContent());
     }
 }

@@ -6,7 +6,6 @@ public class ClaimHandler extends FeedbackHandler {
 
     @Override
     protected void handle(FeedbackMessage message) {
-        System.out.println("Compensation claim received from: " + message.getSenderEmail());
-        // Handle compensation claim logic here
+        System.out.println("Compensation claim received from: " + message.getSenderEmail() + " - " + message.getContent());
     }
 }

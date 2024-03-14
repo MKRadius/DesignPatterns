@@ -6,7 +6,6 @@ public class DevelopmentSuggestionHandler extends FeedbackHandler {
 
     @Override
     protected void handle(FeedbackMessage message) {
-        System.out.println("Development suggestion received from: " + message.getSenderEmail());
-        // Handle development suggestion logic here
+        System.out.println("Development suggestion received from: " + message.getSenderEmail() + " - " + message.getContent());
     }
 }

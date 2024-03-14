@@ -6,7 +6,6 @@ public class ContactRequestHandler extends FeedbackHandler {
 
     @Override
     protected void handle(FeedbackMessage message) {
-        System.out.println("Contact request received from: " + message.getSenderEmail());
-        // Handle contact request logic here
+        System.out.println("Contact request received from: " + message.getSenderEmail() + " - " + message.getContent());
     }
 }
