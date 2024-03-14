@@ -1,6 +1,27 @@
 public class HeapSort implements SortStrategy {
-    public void sort(int arr[])
-    {
+    private double timeStart;
+    private double timeEnd;
+
+    private void startTimer() {
+        timeStart = System.nanoTime();
+    }
+
+    private void endTimer() {
+        timeEnd = System.nanoTime();
+    }
+
+    public double getSortTime() {
+        return timeEnd - timeStart;
+    }
+
+    public int[] sort(int[] arr) {
+        startTimer();
+        heapSort(arr);
+        endTimer();
+        return arr;
+    }
+
+    public void heapSort(int arr[]) {
         int N = arr.length;
  
         // Build heap (rearrange array)

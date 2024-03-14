@@ -1,7 +1,28 @@
 public class BubbleSort implements SortStrategy {
+    private double timeStart;
+    private double timeEnd;
+
+    private void startTimer() {
+        timeStart = System.nanoTime();
+    }
+
+    private void endTimer() {
+        timeEnd = System.nanoTime();
+    }
+
+    public double getSortTime() {
+        return timeEnd - timeStart;
+    }
+
+    public int[] sort(int[] arr) {
+        startTimer();
+        bubbleSort(arr, arr.length);
+        endTimer();
+        return arr;
+    }
+
     // An optimized version of Bubble Sort
-    public void bubbleSort(int arr[], int n)
-    {
+    public void bubbleSort(int arr[], int n) {
         int i, j, temp;
         boolean swapped;
         for (i = 0; i < n - 1; i++) {
@@ -22,14 +43,5 @@ public class BubbleSort implements SortStrategy {
             if (swapped == false)
                 break;
         }
-    }
-    
-    // Function to print an array
-    public void printArray(int arr[], int size)
-    {
-        int i;
-        for (i = 0; i < size; i++)
-            System.out.print(arr[i] + " ");
-        System.out.println();
     }
 }
