@@ -1,3 +1,8 @@
+// Reference:
+// GeeksforGeeks. (n.d.).
+// Heap Sort.
+// Retrieved from https://www.geeksforgeeks.org/heap-sort/
+
 public class HeapSort implements SortStrategy {
     private double timeStart;
     private double timeEnd;

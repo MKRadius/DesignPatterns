@@ -1,3 +1,8 @@
+// Reference:
+// GeeksforGeeks. (n.d.).
+// Quick Sort.
+// Retrieved from https://www.geeksforgeeks.org/quick-sort/
+
 public class QuickSort implements SortStrategy {
     private double timeStart;
     private double timeEnd;

@@ -1,3 +1,8 @@
+// Reference:
+// GeeksforGeeks. (n.d.).
+// Bubble Sort.
+// Retrieved from https://www.geeksforgeeks.org/bubble-sort/
+
 public class BubbleSort implements SortStrategy {
     private double timeStart;
     private double timeEnd;
