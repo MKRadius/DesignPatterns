@@ -9,30 +9,25 @@ import javafx.scene.control.ListView;
 import javafx.scene.Scene;
 
 
-public class HistoryWindowGui extends Application {
+public class HistoryGui extends Application {
     private ListView<IMemento> displayList;
 
-    private Controller mainController;
-    private HistoryWindowController historyWindowController;
+    private Controller controller;
 
-    public HistoryWindowGui(Controller mainController) {
-        this.mainController = mainController;
-        this.historyWindowController = new HistoryWindowController(this);
-    }
-
-    public Controller getMainController() {
-        return mainController;
+    public HistoryGui(Controller controller) {
+        this.controller = controller;
+        controller.setHistoryGui(this);
     }
 
     public void start(Stage stage) {
         displayList = new ListView<>();
-        List<IMemento> historyList = historyWindowController.getHistoryList();
+        List<IMemento> historyList = controller.getHistoryList();
         displayList.setItems(FXCollections.observableArrayList(historyList));
         displayList.setPrefSize(300, 500);
 
         displayList.setOnMouseClicked(event -> {
             IMemento selectedMemento = displayList.getSelectionModel().getSelectedItem();
-            mainController.restoreState(selectedMemento);
+            controller.restoreState(selectedMemento);
         });
 
         Scene scene = new Scene(displayList, 300, 500);
@@ -43,7 +38,7 @@ public class HistoryWindowGui extends Application {
 
     public void updateGui() {
         displayList.getItems().clear();
-        List<IMemento> historyList = historyWindowController.getHistoryList();
+        List<IMemento> historyList = controller.getHistoryList();
         displayList.setItems(FXCollections.observableArrayList(historyList));
     }
 }

@@ -19,7 +19,7 @@ public class Gui extends Application {
     private ColorBox colorBox2;
     private ColorBox colorBox3;
     private CheckBox checkBox;
-    private HistoryWindowGui historyWindowGui;
+    private HistoryGui historyWindowGui;
 
     public void start(Stage stage) {
 
@@ -41,7 +41,7 @@ public class Gui extends Application {
         // Create a button to create a new window to display the history
         Button historyButton = new Button("Show History");
         historyButton.setOnAction(event -> {
-            historyWindowGui = new HistoryWindowGui(controller);
+            historyWindowGui = new HistoryGui(controller);
             historyWindowGui.start(new Stage());
         });
 
@@ -83,10 +83,6 @@ public class Gui extends Application {
         stage.setScene(scene);
         stage.setTitle("Memento Pattern Example");
         stage.show();
-    }
-
-    public void updateHistoryWindow() {
-        historyWindowGui.updateGui();
     }
 
     public void updateGui() {

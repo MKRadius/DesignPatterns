@@ -1,11 +1,13 @@
 package com.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Controller {
     private Model model;
     private Gui gui;
+    private HistoryGui historyGui;
     private List<IMemento> undoHistory; // Memento history
     private List<IMemento> redoHistory; // Redo history
 
@@ -14,6 +16,10 @@ public class Controller {
         this.gui = gui;
         this.undoHistory = new ArrayList<>();
         this.redoHistory = new ArrayList<>();
+    }
+
+    public void setHistoryGui(HistoryGui historyWindowGui) {
+        this.historyGui = historyWindowGui;
     }
 
     public void setOption(int optionNumber, int choice) {
@@ -32,14 +38,6 @@ public class Controller {
 
     public boolean getIsSelected() {
         return model.getIsSelected();
-    }
-
-    public List<IMemento> getUndoHistory() {
-        return undoHistory;
-    }
-
-    public List<IMemento> getRedoHistory() {
-        return redoHistory;
     }
 
     public void undo() {
@@ -67,10 +65,22 @@ public class Controller {
         model.restoreState(memento);
         gui.updateGui();
     }
-
+    
     private void saveToHistory() {
         IMemento currentState = model.createMemento();
         undoHistory.add(currentState);
-        gui.updateHistoryWindow();
+        historyGui.updateGui();
+    }
+
+    // Return a list of all Mementos in history to display in the HistoryGui
+    public List<IMemento> getHistoryList() {
+        List<IMemento> historyList = new ArrayList<>();
+        historyList.addAll(redoHistory);
+
+        List<IMemento> undoList = new ArrayList<>(undoHistory);
+        Collections.reverse(undoList);
+        historyList.addAll(undoList);
+
+        return historyList;
     }
 }
