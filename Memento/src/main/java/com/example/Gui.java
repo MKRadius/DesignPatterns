@@ -24,6 +24,7 @@ public class Gui extends Application {
     public void start(Stage stage) {
 
         controller = new Controller(this);
+        historyWindowGui = new HistoryGui(controller);
 
         // Insets for margin and padding
         Insets insets = new Insets(10, 10, 10, 10);
@@ -41,7 +42,6 @@ public class Gui extends Application {
         // Create a button to create a new window to display the history
         Button historyButton = new Button("Show History");
         historyButton.setOnAction(event -> {
-            historyWindowGui = new HistoryGui(controller);
             historyWindowGui.start(new Stage());
         });
 
