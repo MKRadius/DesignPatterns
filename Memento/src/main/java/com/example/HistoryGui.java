@@ -17,10 +17,10 @@ public class HistoryGui extends Application {
     public HistoryGui(Controller controller) {
         this.controller = controller;
         controller.setHistoryGui(this);
+        displayList = new ListView<>();
     }
 
     public void start(Stage stage) {
-        displayList = new ListView<>();
         List<IMemento> historyList = controller.getHistoryList();
         displayList.setItems(FXCollections.observableArrayList(historyList));
         displayList.setPrefSize(300, 500);

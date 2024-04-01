@@ -67,6 +67,7 @@ public class Controller {
     }
     
     private void saveToHistory() {
+        redoHistory.clear();
         IMemento currentState = model.createMemento();
         undoHistory.add(currentState);
         historyGui.updateGui();
