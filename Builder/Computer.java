@@ -1,25 +1,39 @@
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class Computer {
+    private String cpu;
+    private int ram;
+    private String hardDrive;
+    private String gpu;
+    private String os;
 
-    private List<Component> components;
+    public Computer() {}
 
-    public Computer() {
-        this.components = new ArrayList<>();
+    public void setProcessor(String cpu) {
+        this.cpu = cpu;
     }
 
-    public void addIngredient(Component component) {
-        this.components.add(component);
+    public void setRAM(int ram) {
+        this.ram = ram;
     }
 
+    public void setHardDrive(String hardDrive) {
+        this.hardDrive = hardDrive;
+    }
+
+    public void setGraphicsCard(String gpu) {
+        this.gpu = gpu;
+    }
+
+    public void setOperatingSystem(String os) {
+        this.os = os;
+    } 
+
+    @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (Component component : components) {
-            sb.append(component.getName());
-            sb.append("\n");
-        }
-        return sb.toString();
+        return "PC:\n" + 
+            "CPU: " + cpu + "\n" +
+            "RAM: " + ram + "GB\n" +
+            "Hard Drive: " + hardDrive + "\n" +
+            "GPU: " + gpu + "\n" +
+            "OS: " + os + "\n";
     }
 }

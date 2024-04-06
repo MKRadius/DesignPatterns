@@ -10,14 +10,22 @@ public class OfficeComputerBuilder implements ComputerBuilder {
     }
 
     public void buildRAM() {
-        computer.setRAM("16");
+        computer.setRAM(16);
     }
 
     public void buildHardDrive() {
         computer.setHardDrive("512GB SSD");
     }
 
+    public void buildGraphicsCard() {
+        computer.setGraphicsCard("Integrated Graphics");
+    }
+
     public void buildOperatingSystem() {
         computer.setOperatingSystem("Windows 11 Enterprise");
+    }
+
+    public Computer getComputer() {
+        return this.computer;
     }
 }

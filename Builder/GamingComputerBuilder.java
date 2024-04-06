@@ -10,7 +10,7 @@ public class GamingComputerBuilder implements ComputerBuilder {
     }
 
     public void buildRAM() {
-        computer.setRAM("32");
+        computer.setRAM(32);
     }
 
     public void buildHardDrive() {
@@ -23,5 +23,9 @@ public class GamingComputerBuilder implements ComputerBuilder {
 
     public void buildOperatingSystem() {
         computer.setOperatingSystem("Windows 11 Pro");
+    }
+
+    public Computer getComputer() {
+        return this.computer;
     }
 }

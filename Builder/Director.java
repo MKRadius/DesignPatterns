@@ -5,21 +5,11 @@ public class Director {
         this.computerBuilder = computerBuilder;
     }
 
-    public void constructGamingComputer() {
+    public void constructComputer() {
         computerBuilder.buildProcessor();
         computerBuilder.buildRAM();
         computerBuilder.buildHardDrive();
         computerBuilder.buildGraphicsCard();
         computerBuilder.buildOperatingSystem();
-        return computerBuilder.getComputer();
     }
-
-    public void contructOfficeComputer() {
-        computerBuilder.buildProcessor();
-        computerBuilder.buildRAM();
-        computerBuilder.buildHardDrive();
-        computerBuilder.buildOperatingSystem();
-        return computerBuilder.getComputer();
-    }
-    
 }
