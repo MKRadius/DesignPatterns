@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ChatHandler  {
+public class ChatHandler implements Mediator {
     private HashMap<Client, Window> clientWindow;
 
     public ChatHandler() {
