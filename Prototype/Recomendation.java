@@ -31,6 +31,19 @@ public class Recomendation implements Prototype {
     }
 
     public Recomendation clone() {
-        return new Recomendation();
+        Recomendation rec = new Recomendation();
+        rec.setTargetAudience(this.targetAudience);
+        
+        List<Book> books = new ArrayList<Book>();
+        for (Book book : this.books) {
+            books.add(book.clone());
+        }
+        
+        rec.setBooks(books);
+        return rec;
+    }
+
+    public String toString() {
+        return "Target Audience: " + this.targetAudience + ", Books: " + this.books;
     }
 }

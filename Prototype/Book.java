@@ -1,4 +1,4 @@
-public class Book {
+public class Book implements Prototype {
     private String title;
     private String author;
 
