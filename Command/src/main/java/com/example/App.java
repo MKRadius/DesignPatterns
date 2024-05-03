@@ -14,7 +14,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         GUI gui = new GUI();
         gui.start(stage);
-}
+    }
 
     public static void main(String[] args) {
         launch();
